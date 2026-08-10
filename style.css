@@ -1,0 +1,165 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color-scheme: dark;
+  --bg: #080b12;
+  --card: #111827;
+  --card2: #0d1421;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #8b5cf6;
+  --accent2: #a78bfa;
+  --danger: #f87171;
+  --border: #263244;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #1c1633 0, transparent 38%),
+    var(--bg);
+  color: var(--text);
+}
+button { font: inherit; }
+.app-shell {
+  width: min(720px, 100%);
+  margin: auto;
+  padding: 18px 14px 40px;
+}
+.topbar, .hero-row, .streak-row, .section-heading, .section-title, .quest-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.topbar { margin-bottom: 14px; }
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 0; letter-spacing: .04em; }
+h2 { margin-bottom: 8px; }
+.eyebrow {
+  margin-bottom: 2px;
+  color: var(--accent2);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+.muted, small { color: var(--muted); }
+.big-number {
+  font-size: clamp(4rem, 18vw, 7rem);
+  line-height: .9;
+  font-weight: 900;
+}
+.card {
+  margin-bottom: 14px;
+  padding: 18px;
+  background: linear-gradient(145deg, rgba(17,24,39,.98), rgba(13,20,33,.98));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.18);
+}
+.level-box { width: min(50%, 280px); }
+.level-box strong { display:block; font-size: 1.5rem; margin: 3px 0 7px; }
+.progress {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  background: #202b3d;
+  border-radius: 999px;
+}
+.progress span {
+  display:block;
+  height:100%;
+  width:0;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transition: width .3s ease;
+}
+.streak-row {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.section-title { justify-content: flex-start; color: var(--muted); }
+.badge {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #211a38;
+  color: var(--accent2);
+}
+.quest-description { color: #cbd5e1; line-height: 1.55; min-height: 48px; }
+.quest-meta { margin: 16px 0; color: var(--muted); font-size: .9rem; }
+.primary, .secondary, .ghost, .small-btn {
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .12s ease, opacity .12s ease;
+}
+.primary:hover, .secondary:hover, .ghost:hover, .small-btn:hover { transform: translateY(-1px); }
+.primary:active, .secondary:active, .ghost:active, .small-btn:active { transform: translateY(0); }
+.primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: white;
+  font-weight: 800;
+}
+.secondary {
+  padding: 11px 14px;
+  background: #202b3d;
+  color: white;
+}
+.ghost {
+  padding: 8px 10px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.danger { color: var(--danger); }
+.small-btn {
+  padding: 7px 10px;
+  background: #202b3d;
+  color: #e2e8f0;
+}
+button:disabled { opacity: .45; cursor: not-allowed; transform: none !important; }
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+}
+.day {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #182235;
+  color: #94a3b8;
+  font-size: .78rem;
+  border: 1px solid transparent;
+}
+.day.done { background: #2b1f52; color: #ddd6fe; border-color: #6d4bd1; }
+.day.today { border-color: #f8fafc; color: white; }
+.log { display: grid; gap: 8px; }
+.log-entry {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #0a101a;
+  color: #cbd5e1;
+  font-size: .9rem;
+}
+footer { color: #64748b; text-align: center; font-size: .8rem; padding: 12px; }
+dialog {
+  width: min(90%, 420px);
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text);
+  background: #111827;
+}
+dialog::backdrop { background: rgba(0,0,0,.72); }
+.dialog-inner { padding: 28px; text-align: center; }
+.dialog-inner .primary { margin-top: 12px; }
+@media (max-width: 480px) {
+  .level-box { width: 52%; }
+  .streak-row { font-size: .85rem; }
+  .day-grid { gap: 4px; }
+  .day { font-size: .67rem; border-radius: 7px; }
+}
