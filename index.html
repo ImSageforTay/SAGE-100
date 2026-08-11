@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1020"><meta name="description" content="PROJECT: SAGE-100 V2">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="stylesheet" href="style.css">
+<title>PROJECT: SAGE-100 V2</title>
+</head>
+<body>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<main class="app-shell">
+<header class="topbar"><div><p class="eyebrow">PROJECT</p><h1>SAGE-100 <span class="version">V2</span></h1></div><button id="logoutBtn" class="ghost danger hidden">Log out</button></header>
+
+<section id="authView" class="card auth-card">
+<div class="auth-tabs"><button id="loginTab" class="tab active">Log in</button><button id="signupTab" class="tab">Create account</button></div>
+<div id="loginForm"><h2>Welcome back, Sage.</h2><p class="muted">Your progress lives in the cloud.</p>
+<label>Email<input id="loginEmail" type="email" autocomplete="email"></label>
+<label>Password<input id="loginPassword" type="password" autocomplete="current-password"></label>
+<button id="loginBtn" class="primary">Log in</button></div>
+<div id="signupForm" class="hidden"><h2>Start your run.</h2><p class="muted">Choose a public username. Don't use your real name or private information.</p>
+<label>Username<input id="signupUsername" maxlength="20" autocomplete="nickname" placeholder="SageKidd"></label>
+<label>Email<input id="signupEmail" type="email" autocomplete="email"></label>
+<label>Password<input id="signupPassword" type="password" minlength="8" autocomplete="new-password"></label>
+<button id="signupBtn" class="primary">Create account</button></div>
+<p id="authMessage" class="message"></p>
+</section>
+
+<section id="appView" class="hidden">
+<section class="card profile-card"><div><p class="muted">Sage</p><h2 id="usernameLabel">—</h2></div>
+<div class="level-box"><span id="levelLabel">Level 1</span><strong id="xpLabel">0 XP</strong><div class="progress"><span id="xpBar"></span></div><small id="nextLevelLabel">100 XP to next level</small></div></section>
+
+<section class="hero card"><div class="hero-row"><div><p class="muted">Current day</p><div class="big-number" id="dayNumber">1</div></div><div class="stats"><span>🔥 <b id="streakLabel">0</b> streak</span><span>🏆 <b id="completedLabel">0</b>/100</span></div></div></section>
+
+<section class="card quest-card"><div class="section-title"><span class="badge" id="difficultyBadge">⭐</span><span id="categoryLabel">Life</span></div>
+<h2 id="questTitle">Loading quest...</h2><p id="questDescription" class="quest-description"></p>
+<div class="quest-meta"><span id="xpReward">+10 XP</span><span id="questStatus">Not completed</span></div>
+<button id="completeBtn" class="primary">Complete Quest</button></section>
+
+<section class="card"><div class="section-heading"><h2>Side Quest</h2><span>+5 XP</span></div><p id="sideQuestText"></p><button id="sideCompleteBtn" class="secondary">Complete Side Quest</button></section>
+
+<section class="card"><div class="section-heading"><h2>100-Day Map</h2><span id="mapSummary">0%</span></div><div id="dayGrid" class="day-grid"></div></section>
+
+<section class="card"><div class="section-heading"><h2>🏆 Global Leaderboard</h2><button id="refreshLeaderboardBtn" class="small-btn">Refresh</button></div>
+<p class="muted">Only public usernames and XP are shown.</p><div id="leaderboard" class="leaderboard"></div></section>
+
+<section class="card"><div class="section-heading"><h2>Profile</h2><button id="saveProfileBtn" class="small-btn">Save</button></div>
+<label>Public username<input id="profileUsername" maxlength="20" autocomplete="nickname"></label>
+<p class="muted tiny">Use a nickname, not your real name, school, address, phone number or other private information.</p></section>
+</section>
+<footer>V2 • Cloud progress • Private account data stays private.</footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script><script src="app.js" defer></script>
+</body></html>
